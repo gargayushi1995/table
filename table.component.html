@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      Demo
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">Row: <input type="number" #row (keyup)="manageRow(row)" class="form-control"></div>
+    <div class="col-md-6">Col: <input type="number" #col (keyup)="manageCol(col)" class="form-control"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row" *ngIf="rowArr.length > 0 && colArr.length > 0">
+    <div class="col-md-6" id="myId"><button class="btn btn-primary" (click)="saveForm(form)">
+      Save
+    </button>
+  </div>
+  </div>
+  
+
+  <form #form="ngForm">
+      <table class="table">
+        <tr *ngFor="let row of rowArr">
+            <td *ngFor="let col of colArr">
+              <input type="text" ngModel [name]="row+'_'+col">
+            </td>
+          </tr>
+      </table>
+  </form>
+    
+  
+</div>
